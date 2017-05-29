@@ -257,7 +257,9 @@ def search(inputs):
 @app.route('/get/metrics')
 def metrics():
 	companies = session.query(Company).filter(Company.user_id == current_user.id).all()
+	dataset = {}
 	ebitda_margin = {}
+	ev_ebitda = {}
 	for company in companies:
 		par = {
 			'identifier' : company.ticker,
@@ -266,9 +268,18 @@ def metrics():
 		data = geturl('data_point', par)
 		ebitda_margin[data['identifier']] = data['value']
 
-	print(EBITDA)
+		par2 = {
+			'identifier': company.ticker,
+			'item': 'evtoebitda'
+		}
+		data2 = geturl('data_point', par2)
+		ev_ebitda[data2['identifier']] = data2['value']
 
-	return "Hello"
+	dataset['MARGIN'] = ebitda_margin
+	dataset['EV'] = ev_ebitda
+	print(dataset)
+
+	return jsonify(results=dataset)
 
 
 
