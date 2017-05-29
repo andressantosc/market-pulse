@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+{% block contents %}
+
+<div class="content-wrap">
+  <div class="content">  
+          <div class="container-fluid whiteback">
+            <div class="row">
+              <div class="col-xs-12">
+                <h2 class="text-uppercase">{{ companies_dataset['name']  }}</h2>
+                <div class="hrule"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <i class="fa fa-building-o fa-5x"></i>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 text-justify">
+                <p>{{ companies_dataset['short_description'] }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="grayback projects">
+            <div class="row">
+              <div class="col-xs-12">
+                <h2 class="text-uppercase">Financials</h2>
+                <div class="hrule"></div>
+              </div>
+            </div>
+
+          <div class="text-center">
+            <h1> Ticker: {{ name }} </h1>
+            {% for data in financials_dataset %}
+            
+            <h3> {{ data['tag'] }} : {{ data['value'] }} </h3>
+
+            {% endfor %}
+          </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+  {{ super() }}
+  <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}

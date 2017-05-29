@@ -1,0 +1,3 @@
+[console_scripts]
+flasker = flasker.__main__:main
+

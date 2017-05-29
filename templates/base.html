@@ -1,0 +1,109 @@
+
+{% block head %}
+
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Market Pulse</title>
+  <meta name="description" content="Automating Your Financial Reports">
+  <meta name="author" content="Andres Santos">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href='http://fonts.googleapis.com/css?family=Montserrat|Varela+Round' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" type="text/css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  {% block firstfiles %}
+
+  {% endblock %}
+  
+</head>
+
+<body>
+  
+      
+      <nav class="navbar navbar-inverse nomargin">
+        {% if current_user.is_authenticated %}
+        <a class="navbar-brand" href="http://localhost:5000/home">Market Pulse</a>
+        {% else %}
+        <a class="navbar-brand" href="http://localhost:5000/">Market Pulse</a>
+        {% endif %}
+        <div class="collapse navbar-collapse">  
+            {% if current_user.is_authenticated %}
+            <ul class="nav navbar-nav">
+              <li class="">
+                <a href="http://localhost:5000/reports">
+                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; My Reports
+                </a>  
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="">
+                <a href="">
+                  <span> Welcome, {{ current_user.username }}</span>
+                </a>
+              </li>
+              <li class="">
+                <a href="http://localhost:5000/addreport">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Add Report
+                </a>
+              </li>
+              <li class="">
+                <a href="http://localhost:5000/logout">
+                  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp; Logout
+                </a>
+              </li>
+            </ul>
+            {% else %}
+            <ul class="nav navbar-nav navbar-right">
+              <li class="">
+                <a href="http://localhost:5000/login">
+                  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp; Login  
+                </a>
+              </li>
+            </ul>
+            {% endif %} 
+        </div>
+              
+      </nav>
+
+{% endblock %}
+
+{% block contents %}
+{% endblock %}
+
+{% block footer %}
+
+    
+        <footer class="footer">
+          <div class="container">
+            <ul class="list-inline social">
+              <li><a href="http://mx.linkedin.com/in/andressantosc" target="_blank" class="social-linkedin"><i class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></i></a></li>
+                <li><a href="mailto:andres.santos@neomesa.com" class="social-mail"><i class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></i></a></li>
+              <li><a href="https://twitter.com/andressantos188" target="_blank" class="social-twitter"><i class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></i></a></li>
+              <li><a href="https://github.com/andressantosc" target="_blank" class="social-git"><i class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-github-alt fa-stack-1x fa-inverse"></i></i></a></li>
+            </ul>
+            <p>Made in Monterrey.</p>
+            <p>&copy; 2017 Andres Santos. All rights reserved.</p>
+          </div>
+        </footer>
+      
+
+
+{% block lastfiles %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- AdminLTE App -->
+<script src="{{ url_for('static', filename='js/app.min.js') }}"></script>
+{% endblock %}
+
+</body>
+
+</html>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+{% block firstfiles %}
+  {{ super() }}
+  <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
+
+{% block contents %}
+<div class="content-wrap">
+  <div class="content">
+    <div class="grayback">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="text-uppercase lg-font">My Dashboard</h2>
+          <div class="hrule"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4">      
+          <div class="dash-area">
+            <h3 class="text-uppercase">Relevant News</h3>
+            <div class="hrule"></div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <h3 class="text-uppercase">Top Metrics</h3>
+          <div class="hrule"></div>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Metrics
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">EBITDA MARGIN</a>
+              <a class="dropdown-item" href="#">EBITDA MULTIPLE</a>
+              <a class="dropdown-item" href="#">DEBT RATIO</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+          <h3 class="text-uppercase">Stock Market</h3>
+          <h5 class="text-uppercase">YTD Winners vs Loosers</h5>
+          <div class="hrule"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block lastfiles %}
+  {{ super() }}
+{% endblock %}
+
+{% block footer %}
+  {{ super() }}
+{% endblock %}

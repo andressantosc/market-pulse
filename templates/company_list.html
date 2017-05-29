@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+{% block contents %}
+<div class="content-wrap">
+  <div class="content">  
+		<div class="whiteback">
+		  	<div class="row">
+		    	<div class="col-xs-12">
+		      	<h2 class="text-uppercase lg-font">My Reports</h2>
+		      	<div class="hrule"></div>
+		    </div>
+		    <div class="row">
+		    	<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+		    		<div class="graybox">
+		    			<div class="row">   
+
+		    				{% for company in companies %}
+
+			    			<div class="col-xs-12 col-md-10 col-md-offset-1 vert-align automargin">
+			    				<div class="col-xs-12 col-md-6 text-left sidepadding align-middle">
+			    					<h2 class="">{{ company.name }}</h2>
+			    				</div>
+			    				<div class="col-xs-12 col-md-6 pull-right">
+			    					<a href="http://localhost:5000/rev/{{ company.ticker }}"><button type="button" class="btn btn-success pull-right sidepadding">Revenue</button></a>
+			    					<a href="http://localhost:5000/profile/{{ company.ticker }}"><button type="button" class="btn btn-info pull-right">Profile</button></a>
+			    				</div>
+			    			</div>
+			    			<div class="hrule-long"></div>
+
+			    			{% endfor %}
+			    		</div>	
+		    		</div>
+		    	</div>
+		    </div>
+		</div>
+	</div>
+</div>
+          
+{% endblock %}
+
+{% block footer %}
+  {{ super() }}
+{% endblock %}
+

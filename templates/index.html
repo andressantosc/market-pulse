@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+{% block contents %}
+<div class="content-wrap">
+  <div class="content">  
+			    <header class="container-fluid top-info text-uppercase"> 
+			    	<div class="row backgr vert-align">
+			        	<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 text-center back-text">
+                  <h1 id="title">Market Pulse</h1>
+                  <h3 id="lower">Automating your financial reports</h3>
+                  <a id="btn-intro" href="http://localhost:5000/login" class="btn btn-custom">Sign in or Log in</a>
+                </div>
+			        </div>
+			    </header>
+          <div class="grayback projects">
+            <div class="row">
+              <div class="col-xs-12">
+                <h2 class="text-uppercase">Features</h2>
+                <div class="hrule"></div>
+              </div>
+            </div>
+            <div class="row center-contents">
+              <div class="col-xs-12 col-sm-6 col-md-4 addpadding">
+                <span class="glyphicon glyphicon-book large-icon"></span>
+                <h4>Financial Statements</h4></a>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 addpadding">
+                <span class="glyphicon glyphicon-piggy-bank large-icon"></span>
+                <h4>Metrics and Ratios</h4></a>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 addpadding">
+                <span class="glyphicon glyphicon-stats large-icon"></span>
+                <h4>Real-Time Stocks Prices</h4></a>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 addpadding">
+                <span class="glyphicon glyphicon-briefcase large-icon"></span>
+                <h4>Company Information</h4></a>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 addpadding">
+                <span class="glyphicon glyphicon-globe large-icon"></span>
+                <h4>Economic Analysis</h4></a>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 addpadding">
+                <span class="glyphicon glyphicon-bullhorn large-icon"></span>
+                <h4>Relevant News</h4>
+              </div>
+            </div>    
+          </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+  {{ super() }}
+{% endblock %}
+
