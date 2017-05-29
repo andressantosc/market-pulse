@@ -107,17 +107,6 @@
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-wrench"></i></button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">EBITDA MARGIN</a></li>
-                    <li><a href="#">EBITDA MULTIPLE</a></li>
-                    <li><a href="#">DEBT RATIO</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">OTHER</a></li>
-                  </ul>
-                </div>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
@@ -126,57 +115,44 @@
               <div class="row">
                 <div class="col-md-8">
                   <p class="text-center">
-                    <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+                    <strong id="chart-title"></strong>
                   </p>
 
                   <div class="chart">
                     <!-- Sales Chart Canvas -->
-                    <canvas id="salesChart" style="height: 180px;"></canvas>
+                    <canvas id="salesChart" style="height: 210px;"></canvas>
                   </div>
                   <!-- /.chart-responsive -->
                 </div>
                 <!-- /.col -->
                 <div class="col-md-4">
                   <p class="text-center">
-                    <strong>Goal Completion</strong>
+                    <strong>Choose a Metric:</strong>
                   </p>
-
-                  <div class="progress-group">
-                    <span class="progress-text">Add Products to Cart</span>
-                    <span class="progress-number"><b>160</b>/200</span>
-
-                    <div class="progress sm">
-                      <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
-                    </div>
+                  <div class="radioButtons">
+                    <ul>
+                      <li>
+                        <input type="radio" id="ebitdamargin" name="selector" checked="checked" onchange="companyChart()">
+                        <label for="ebitdamargin">EBITDA Margin</label>
+                        
+                        <div class="check"></div>
+                      </li>
+                      
+                      <li>
+                        <input type="radio" id="evtoebitda" name="selector" onchange="companyChart()">
+                        <label for="evtoebitda">EV to EBITDA</label>
+                        
+                        <div class="check"><div class="inside"></div></div>
+                      </li>
+                      
+                      <li>
+                        <input type="radio" id="t-option" name="selector" onchange="companyChart()">
+                        <label for="t-option">Cats</label>
+                        
+                        <div class="check"><div class="inside"></div></div>
+                      </li>
+                    </ul>
                   </div>
-                  <!-- /.progress-group -->
-                  <div class="progress-group">
-                    <span class="progress-text">Complete Purchase</span>
-                    <span class="progress-number"><b>310</b>/400</span>
-
-                    <div class="progress sm">
-                      <div class="progress-bar progress-bar-red" style="width: 80%"></div>
-                    </div>
-                  </div>
-                  <!-- /.progress-group -->
-                  <div class="progress-group">
-                    <span class="progress-text">Visit Premium Page</span>
-                    <span class="progress-number"><b>480</b>/800</span>
-
-                    <div class="progress sm">
-                      <div class="progress-bar progress-bar-green" style="width: 80%"></div>
-                    </div>
-                  </div>
-                  <!-- /.progress-group -->
-                  <div class="progress-group">
-                    <span class="progress-text">Send Inquiries</span>
-                    <span class="progress-number"><b>250</b>/500</span>
-
-                    <div class="progress sm">
-                      <div class="progress-bar progress-bar-yellow" style="width: 80%"></div>
-                    </div>
-                  </div>
-                  <!-- /.progress-group -->
                 </div>
                 <!-- /.col -->
               </div>
@@ -208,7 +184,7 @@
 <!-- ChartJS 1.0.1 -->
 <script src="{{ url_for('static', filename='js/plugins/chartjs/Chart.min.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ url_for('static', filename='js/pages/dashboard2.js') }}"></script>
+<script src="{{ url_for('static', filename='js/dash.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ url_for('static', filename='js/demo.js') }}"></script>
 {% endblock %}
